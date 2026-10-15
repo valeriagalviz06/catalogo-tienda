@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, ILike } from 'typeorm';
-import { Product } from './entities/product.entity';
-import { Category } from '../categories/entities/category.entity';
+import { Product } from './entities/product.entity.js';
+import { Category } from '../categories/entities/category.entity.js';
 
 @Injectable()
 export class ProductsService {
@@ -41,7 +41,7 @@ export class ProductsService {
 
     return this.productsRepo.find({
       where,
-      relations: ['category'],
+      relations: { category: true },
       order: { id: 'DESC' },
     });
   }
@@ -49,7 +49,7 @@ export class ProductsService {
   async findOne(id: number) {
     const product = await this.productsRepo.findOne({
       where: { id },
-      relations: ['category'],
+      relations: { category: true },
     });
     if (!product) throw new NotFoundException('Producto no encontrado');
     return product;

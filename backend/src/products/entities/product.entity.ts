@@ -7,7 +7,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Category } from '../../categories/entities/category.entity';
+import { Category } from '../../categories/entities/category.entity.js';
 
 @Entity('products')
 export class Product {

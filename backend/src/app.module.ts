@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductsModule } from './products/products.module';
-import { CategoriesModule } from './categories/categories.module';
-import { Product } from './products/entities/product.entity';
-import { Category } from './categories/entities/category.entity';
+import { ProductsModule } from './products/products.module.js';
+import { CategoriesModule } from './categories/categories.module.js';
+import { Product } from './products/entities/product.entity.js';
+import { Category } from './categories/entities/category.entity.js';
 
 @Module({
   imports: [
